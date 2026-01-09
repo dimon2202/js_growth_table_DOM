@@ -33,26 +33,26 @@ const removeColumn = () => {
 };
 
 const checkLimitRows = () => {
-  if (table.rows.length === MAX) {
+  if (table.rows.length >= MAX) {
     appendRowButton.setAttribute('disabled', '');
   } else {
     appendRowButton.removeAttribute('disabled');
   }
 
-  if (table.rows.length === MIN) {
+  if (table.rows.length <= MIN) {
     removeRowButton.setAttribute('disabled', '');
   } else {
     removeRowButton.removeAttribute('disabled');
   }
 };
 const checkLimitColumns = () => {
-  if (table.rows[0].cells.length === MAX) {
+  if (table.rows[0].cells.length >= MAX) {
     appendColumnButton.setAttribute('disabled', '');
   } else {
     appendColumnButton.removeAttribute('disabled');
   }
 
-  if (table.rows[0].cells.length === MIN) {
+  if (table.rows[0].cells.length <= MIN) {
     removeColumnButton.setAttribute('disabled', '');
   } else {
     removeColumnButton.removeAttribute('disabled');
