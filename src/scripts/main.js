@@ -17,7 +17,7 @@ const appendRow = () => {
 };
 
 const removeRow = () => {
-  table.rows[0].remove();
+  table.rows[table.rows.length - 1].remove();
 };
 
 const appendColumn = () => {
@@ -27,31 +27,33 @@ const appendColumn = () => {
 };
 
 const removeColumn = () => {
-  [...table.rows].forEach((element) => element.cells[0].remove());
+  [...table.rows].forEach((element) => {
+    return element.cells[element.cells.length - 1].remove();
+  });
 };
 
 const checkLimitRows = () => {
   if (table.rows.length === MAX) {
-    appendRowButton.setAttribute('disabled', false);
+    appendRowButton.setAttribute('disabled', '');
   } else {
     appendRowButton.removeAttribute('disabled');
   }
 
   if (table.rows.length === MIN) {
-    removeRowButton.setAttribute('disabled', false);
+    removeRowButton.setAttribute('disabled', '');
   } else {
     removeRowButton.removeAttribute('disabled');
   }
 };
 const checkLimitColumns = () => {
   if (table.rows[0].cells.length === MAX) {
-    appendColumnButton.setAttribute('disabled', false);
+    appendColumnButton.setAttribute('disabled', '');
   } else {
     appendColumnButton.removeAttribute('disabled');
   }
 
   if (table.rows[0].cells.length === MIN) {
-    removeColumnButton.setAttribute('disabled', false);
+    removeColumnButton.setAttribute('disabled', '');
   } else {
     removeColumnButton.removeAttribute('disabled');
   }
